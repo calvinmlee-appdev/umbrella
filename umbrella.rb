@@ -3,7 +3,9 @@ p "Where are you located"
 user_location = gets.chomp
 p user_location
 
-gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{user_location}&key=AIzaSyB92cYxPcYqgjwBJfWlwDQw_7yjuyU3tpA"
+gmaps_key = ENV.fetch("GMAPS_KEY")
+
+gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{user_location}&key=#{gmaps_key}"
 
 require("open-uri")
 
@@ -32,4 +34,4 @@ dark_sky_key = ENV.fetch("DARK_SKY_KEY")
 
 # Lat for Chic : 41.8781136
 # Long for Chic : -87.6297982
-dark_sky_url = "https://api.darksky.net/forecast/71174c5d293588d2f0ba4c0c7448bcfb/41.8781136,-87.6297982"
+dark_sky_url = "https://api.darksky.net/forecast/#{dark_sky_key}/41.8781136,-87.6297982"
